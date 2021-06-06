@@ -53,17 +53,15 @@ module.exports = {
 </head>
 
 <body>
-  <div>
-  <iframe src="banner.php"></iframe>
-	</div>
+ 
 	<!-- This example requires Tailwind CSS v2.0+ -->
 <div>
-  <nav class="bg-gray-800">
+  <nav class="bg-gray-700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
+      <div class="flex items-center justify-between h-14">
         <div class="flex items-center">
           <div class="flex-shrink-0">
-            <img class="h-8 w-8" src="assets/img/logo3.png" alt="Workflow">
+            <img class="h-10 w-10" src="assets/img/NUEVO LOGO.png" alt="Workflow">
           </div>
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
@@ -100,39 +98,45 @@ module.exports = {
   </nav>
 
   <header class="bg-white shadow">
-    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto py-1 px-4 sm:px-6 lg:px-8">
       <h1 class="text-3xl font-bold text-gray-900">
         ¿Qué es México en tus manos?
       </h1>
     </div>
   </header>
   <main>
-    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto py-3 sm:px-6 lg:px-8">
       <!-- Replace with your content -->
-      <div class="px-4 py-6 sm:px-0">
-        <div class="border-4 border-dashed border-gray-200 rounded-lg h-2000">
-          <div class="carousel relative shadow-2xl bg-white">
+      <div class="px-4  sm:px-0">
+        <div class="border-4 border-dashed border-yellow-200 rounded-lg h-2600">
+          <div class="carousel relative shadow-2xl bg-black">
     <div class="carousel-inner relative overflow-hidden w-full">
       <!--Slide 1-->
         <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
-        <div class="carousel-item absolute opacity-0" style="height:50vh;">
-            <div class="block h-full w-full bg-indigo-500 text-white text-5xl text-center">Slide 1</div>
+        <div class="carousel-item absolute opacity-0" style="height:82vh;">
+            <div class="block h-full w-full bg-indigo-500 text-white text-5xl text-center">
+             <img src="assets/img/slide1.jpg"> </img> 
+            </div>
         </div>
         <label for="carousel-3" class="prev control-1 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-blue-700 leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
         <label for="carousel-2" class="next control-1 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-blue-700 leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label>
         
         <!--Slide 2-->
         <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
-        <div class="carousel-item absolute opacity-0" style="height:50vh;">
-            <div class="block h-full w-full bg-orange-500 text-white text-5xl text-center">Slide 2</div>
+        <div class="carousel-item absolute opacity-0" style="height:82vh;">
+            <div class="block h-full w-full bg-orange-500 text-white text-5xl text-center">
+              <img src="assets/img/slide2.jpg"> </img> 
+            </div>
         </div>
         <label for="carousel-1" class="prev control-2 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-blue-700 leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
         <label for="carousel-3" class="next control-2 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-blue-700 leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label> 
         
         <!--Slide 3-->
         <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">
-        <div class="carousel-item absolute opacity-0" style="height:50vh;">
-            <div class="block h-full w-full bg-green-500 text-white text-5xl text-center">Slide 3</div>
+        <div class="carousel-item absolute opacity-0" style="height:82vh;">
+            <div class="block h-full w-full bg-green-500 text-white text-5xl text-center">
+                <img src="assets/img/slide3.jpg"> </img> 
+            </div>
         </div>
         <label for="carousel-2" class="prev control-3 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-blue-700 leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
         <label for="carousel-1" class="next control-3 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-blue-700 leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label>
@@ -140,13 +144,13 @@ module.exports = {
         <!-- Add additional indicators for each slide-->
         <ol class="carousel-indicators">
             <li class="inline-block mr-3">
-                <label for="carousel-1" class="carousel-bullet cursor-pointer block text-4xl text-white hover:text-blue-700">•</label>
+                <label for="carousel-1" class="carousel-bullet cursor-pointer block text-5xl text-white hover:text-blue-700">•</label>
             </li>
             <li class="inline-block mr-3">
-                <label for="carousel-2" class="carousel-bullet cursor-pointer block text-4xl text-white hover:text-blue-700">•</label>
+                <label for="carousel-2" class="carousel-bullet cursor-pointer block text-5xl text-white hover:text-blue-700">•</label>
             </li>
             <li class="inline-block mr-3">
-                <label for="carousel-3" class="carousel-bullet cursor-pointer block text-4xl text-white hover:text-blue-700">•</label>
+                <label for="carousel-3" class="carousel-bullet cursor-pointer block text-5xl text-white hover:text-blue-700">•</label>
             </li>
         </ol>
         
