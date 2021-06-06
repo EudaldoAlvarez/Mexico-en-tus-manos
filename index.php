@@ -81,7 +81,7 @@ module.exports = {
             <div class="ml-4 relative">
               <div>
                   <a href="login/index.php">  
-                  	<img class="h-10 w-10 rounded-md" src="assets/img/sesion_.png" alt=""> 
+                  	<img class="h-10 w-10 rounded-md" src="assets/img/i_S.png" alt=""> 
                   </a>
               
               </div>
