@@ -73,7 +73,7 @@ module.exports = {
         </div>
         <!-- Profile dropdown -->
         <div class="ml-4 relative">
-            <div>
+            <div> iniciar sesion
               <a href="login/index.php"><img class="h-8 w-8 rounded-md" src="assets/img/sesion.png" alt=""></a>
             </div> 
         </div>
@@ -98,7 +98,7 @@ module.exports = {
                 <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
                   <div class="carousel-item absolute opacity-0" style="height:82vh;">
                     <div class="block h-full w-full bg-indigo-500 text-white text-5xl text-center">
-                      <img src="assets/img/slide5.jpg"> </img> 
+                      <img src="assets/img/slide4.jpg"> </img> 
                     </div>
                   </div>
                   <label for="carousel-3" class="prev control-1 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-blue-700 leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
