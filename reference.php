@@ -74,7 +74,7 @@ module.exports = {
         <!-- Profile dropdown -->
         <div class="ml-4 relative">
             <div> 
-              <a href="login/index.php"><img class="h-8 w-8 rounded-md" src="assets/img/sesion.png" alt=""></a>
+              <a href="login/index.php"><img class="h-10 w-10 rounded-md" src="assets/img/i_S.png" alt=""></a>
             </div> 
         </div>
       </div>
