@@ -1,3 +1,8 @@
+<?php
+
+include "../app/app.php";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,12 +62,15 @@
                 <h3 id="estado" class="ml-8 text-2xl font-serif ">Estado: </h3>
                 <h3 id="intentos" class="ml-8 text-2xl font-serif ">Intentos: </h3>
             </div>
-            <div class="w-full ml-.5 sm:ml-0 md:ml-0 lg:ml-1.5 xl:ml-8">
-                <img class="rounded-md shadow-lg" src="../assets/img/champurrado.gif" alt="">
+            <div class="w-full ml-.5 sm:ml-0 md:ml-0 lg:ml-1.5 xl:ml-8 inline-flex" >
+                <img id="gif" class="rounded-md shadow-lg w-1/3 h-1/3" src="../assets/img/estados Gif/Baja California Sur.gif" alt="">
+                <button id="boton" class="w-14 pl-4"><img  src="../assets/img/play.png" alt="reproducir estado"></button>
+                <audio id="audio" src=""></audio>
             </div>
 
         </div>
-        <div id='map' class="w-3/4 bg-blue-200 cursor-default" onclick=comprobarEstado(bcs,estados[0])></div>
+        <div id='map' class="w-3/4 bg-blue-200 cursor-default" ></div>
+        <script src="../assets/js/marcadores.js"></script>
         <script src="../assets/js/mapa.js"></script>
         
         <!-- end-mapa -->
