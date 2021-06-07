@@ -44,6 +44,10 @@ include "../app/app.php";
                     Experto
                 </div>
             </div>
+            <div id="final" class="hidden">
+                <p id="text-final"></p>
+                 <a href="../index.php" class="w-auto p-2 self-center text-lg text-center rounded-lg bg-green-300 border-2 border-green-400 hover:bg-green-400 mt-4">Regresar</a>
+            </div>
             <div id="datos" class="grid grids-cols-5 mt-4 hidden">
                 <h3 id="nombre" class="ml-8 text-3xl font-serif ">Eudaldo Trasviña</h3>
                 <h3 id="aciertos" class="ml-8 text-2xl font-serif ">Aciertos: </h3>

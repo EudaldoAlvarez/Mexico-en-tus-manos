@@ -29,7 +29,7 @@ markers.forEach(marker => {
     marker.getElement().addEventListener('click', () => {
         if (intentos > 0) {
             comprobarEstado(marker);
-           
+
         } else {
             alert("Sin intentos, ¡Perdiste!");
         }
@@ -38,14 +38,14 @@ markers.forEach(marker => {
     })
 
 });
-function iniciarTemporizador () {
+function iniciarTemporizador() {
     var id = setInterval(function () {
         segundos++;
         if (segundos == 60) { minutos++, segundos = 0 };
         if (minutos == 60) { horas++, minutos = 0 };
         if (segundos < 10 && segundos != 0) { segundos = '0' + segundos; }
-        if(intentos==0){clearInterval(id)}
-        
+        if (intentos == 0 || aciertos == 24) { clearInterval(id) }
+
         let htmlTiempo = document.getElementById("reloj");
         htmlTiempo.innerHTML = `Tiempo: ${horas}:${minutos}:${segundos}`;
     }, 1000);
@@ -58,19 +58,19 @@ function sumarNumeroAciertos() {
     htmlAciertos.innerHTML = `Aciertos: ${aciertos}/32`
 };
 
-function cambiarAudio(){
+function cambiarAudio() {
     let boton = document.getElementById("boton");
     let audioEtiqueta = document.getElementById("audio");
     boton.addEventListener("click", () => {
-        audioEtiqueta.src =`../assets/audios/estados/${estadosNombre[0]}.mp3`;
+        audioEtiqueta.src = `../assets/audios/estados/${estadosNombre[0]}.mp3`;
         audioEtiqueta.play()
         console.log(`Reproduciendo: ${audioEtiqueta.src}`)
-      })
+    })
 }
 
-function cambiarGif(){
+function cambiarGif() {
     let htmlGif = document.getElementById("gif")
-    htmlGif.src=`../assets/img//estados Gif/${estadosNombre[0]}.gif`
+    htmlGif.src = `../assets/img//estados Gif/${estadosNombre[0]}.gif`
 }
 function cambiarEstado() {
     let htmlEstado = document.getElementById("estado");
@@ -98,6 +98,7 @@ const mezclarArreglo = arreglo => {
     }
 };
 
+
 function comprobarEstado(marcador) {
 
     var marcadorCoordenadas = (marcador._lngLat.lat + "," + marcador._lngLat.lng);
@@ -112,6 +113,15 @@ function comprobarEstado(marcador) {
         sumarNumeroAciertos();
         cambiarGif();
         marcador.remove();
+        if (aciertos == 32) {
+            document.getElementById('datos').setAttribute('class', 'hidden');
+            document.getElementById('lsm').setAttribute('class', 'hidden');
+            let final = document.getElementById('final')
+            final.setAttribute('class', 'p-2 w-1/4 mr-1 h-auto fixed bg-yellow-200 border-r-4 border-yellow-600 text-2xl text-bold text-justify font-serif');
+            document.getElementById('text-final').innerHTML = `¡FELICITACIONES! HAS LOGRADO ACABAR EL JUEGO EN UN TIEMPO DE ${horas?horas <10:horas = '0' +horas}:${minutos?minutos<10:minutos= '0'+minutos}:${segundos}`;
+
+        }
+
     } else {
         alert(`Estado incorrecto, Este es ${nombreEstado.estado}`);
         errar();
@@ -129,9 +139,9 @@ function iniciarIntermedio() {
     let htmlAciertos = document.getElementById("aciertos");
     htmlAciertos.innerHTML = `Aciertos: ${aciertos}/32`;
 
-    document.getElementById('menu').setAttribute('class','hidden');
-    document.getElementById('datos').setAttribute('class','grid grids-cols-5 mt-4');
-    document.getElementById('lsm').setAttribute('class','w-full ml-.5 sm:ml-0 md:ml-0 lg:ml-1.5 xl:ml-8 inline-flex');
+    document.getElementById('menu').setAttribute('class', 'hidden');
+    document.getElementById('datos').setAttribute('class', 'grid grids-cols-5 mt-4');
+    document.getElementById('lsm').setAttribute('class', 'w-full ml-.5 sm:ml-0 md:ml-0 lg:ml-1.5 xl:ml-8 inline-flex');
     cambiarGif();
     console.log(estadosNombre);
 };

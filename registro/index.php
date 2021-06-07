@@ -92,61 +92,6 @@ include "../app/app.php";
 
 		</div>
 	</div>
-
-
-
-	<!-- <div id="login">
-			<div class="container">
-				<fieldset>
-					<legend>
-						<label>
-							Registro
-						</label>
-					</legend>
-					<img src="../assets/img/header/user.png">
-					<?php include "../layouts/alerts.template.php"; ?>
-					<form method="POST" action="../app/authController.php">
-						<label>
-							Nombre(s)
-						</label>
-						<input type="text" name="nombres" placeholder="Filomeno" required="">
-						<label>
-							Apellidos
-						</label>
-						<input type="text" name="apellidos" placeholder="Ancrascio" required="">
-						<label>
-							Usuario
-						</label>
-						<input type="text" name="user" placeholder="Nickname" required="">
-						<label>
-							email
-						</label>
-						<input type="email" name="email" placeholder="email@correo.com" required="">
-						<label>
-							Contraseña
-						</label>
-						<input type="password" name="password" placeholder="*****" required="">
-						<div class="condiciones">
-							<label>
-								Aceptar <a href="">terminos y condiciones</a>
-							</label>
-							<input type="checkbox" name="terminos" required="">
-						</div>
-						<input type="hidden" name="action" value="registro">
-						<input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
-						<button type="submit">
-							Registrar
-						</button>
-					</form>
-					<label>
-						¿Ya tienes una cuenta? Pulsa <a href="../login/">aqui</a>
-					</label>
-				</fieldset>
-			</div>
-		</div> -->
-	<!--==================
-			login-end
-		===================-->
 </body>
 
 </html>
