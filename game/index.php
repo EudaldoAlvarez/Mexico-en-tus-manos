@@ -43,9 +43,12 @@ include "../layouts/alerts.template.php";
                 <div class="w-auto p-2 self-center text-lg text-center rounded-lg bg-red-300 border-2 border-red-400 hover:bg-red-400" style="cursor: pointer">
                     Experto
                 </div>
-                <div class=" mt-4 w-auto p-2 self-center text-lg text-center rounded-lg bg-yellow-500 border-2 border-yellow-700 hover:bg-yellow-700 mt-4">
-                    <a class="w-full" href="../index.php">Salir</a>
-                </div>
+                <a href="../index.php">
+                    <div class=" mt-4 w-auto p-2 self-center text-lg text-center rounded-lg bg-yellow-500 border-2 border-yellow-700 hover:bg-yellow-700 mt-4">
+                        Salir
+                    </div>
+                </a>
+
             </div>
             <div id="final" class="hidden">
                 <p id="text-final"></p>
@@ -75,4 +78,5 @@ include "../layouts/alerts.template.php";
         <!-- end-mapa -->
     </div>
 </body>
+
 </html>

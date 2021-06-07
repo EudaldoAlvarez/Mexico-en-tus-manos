@@ -156,7 +156,7 @@ function finalPrincipiante(){
     document.getElementById('datos').setAttribute('class', 'hidden');
     document.getElementById('lsm').setAttribute('class', 'hidden');
     let final = document.getElementById('final')
-    final.setAttribute('class', 'p-2 w-1/4 mr-1 h-auto fixed bg-yellow-200 border-r-4 border-yellow-600 text-2xl text-bold text-justify font-serif');
+    final.setAttribute('class', 'p-2 w-1/4 mr-1 h-auto fixed bg-yellow-200 border-r-4 border-yellow-600 text-2xl text-bold text-center font-serif');
     document.getElementById('text-final').innerHTML = `¡FELICITACIONES! HAS LOGRADO ACABAR EL JUEGO.`;
 
 }
@@ -165,7 +165,7 @@ function finalIntermedio() {
     document.getElementById('datos').setAttribute('class', 'hidden');
     document.getElementById('lsm').setAttribute('class', 'hidden');
     let final = document.getElementById('final')
-    final.setAttribute('class', 'p-2 w-1/4 mr-1 h-auto fixed bg-yellow-200 border-r-4 border-yellow-600 text-2xl text-bold text-justify font-serif');
+    final.setAttribute('class', 'p-2 w-1/4 mr-1 h-auto fixed bg-yellow-200 border-r-4 border-yellow-600 text-2xl text-bold text-center font-serif');
     document.getElementById('text-final').innerHTML = `¡FELICITACIONES! HAS LOGRADO ACABAR EL JUEGO EN UN TIEMPO DE ${horas ? horas < 10 : horas = '0' + horas}:${minutos ? minutos < 10 : minutos = '0' + minutos}:${segundos}`;
 }
 function iniciarIntermedio() {

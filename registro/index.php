@@ -30,7 +30,7 @@ include "../app/app.php";
 					</p>
 				</div>
 				<?php include "../layouts/alerts.template.php"; ?>
-				<form class="mt-8 px-3 space-y-6" method="POST" action="../auth">
+				<form class="mt-8 px-3 space-y-6" method="POST" action="../app/authController.php">
 
 
 
