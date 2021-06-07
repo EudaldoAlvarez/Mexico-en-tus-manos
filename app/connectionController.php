@@ -2,7 +2,7 @@
 
 	define("HOST", "localhost");
 	define("USER", "root");
-	define("PSWD", "");
+	define("PSWD", "root");
 	define("DBNM", "mexicoentusmanos");
 
 	function connect(){

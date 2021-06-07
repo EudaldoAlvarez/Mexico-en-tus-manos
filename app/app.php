@@ -13,5 +13,5 @@ if (!isset($_SESSION['token'])) {
 }
 
 if (!defined("BASE_PATH")) {
-	define("BASE_PATH", "http://localhost//México%20en%20tus%20manos");
+	define("BASE_PATH", "http://localhost//Mexico-en-tus-manos");
 }

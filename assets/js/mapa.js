@@ -29,6 +29,7 @@ markers.forEach(marker => {
     marker.getElement().addEventListener('click', () => {
         if (intentos > 0) {
             comprobarEstado(marker);
+           
         } else {
             alert("Sin intentos, ¡Perdiste!");
         }
@@ -37,8 +38,7 @@ markers.forEach(marker => {
     })
 
 });
-
-window.onload = function () {
+function iniciarTemporizador () {
     var id = setInterval(function () {
         segundos++;
         if (segundos == 60) { minutos++, segundos = 0 };
@@ -111,6 +111,7 @@ function comprobarEstado(marcador) {
         acertar();
         sumarNumeroAciertos();
         cambiarGif();
+        marcador.remove();
     } else {
         alert(`Estado incorrecto, Este es ${nombreEstado.estado}`);
         errar();
@@ -122,13 +123,18 @@ function iniciarIntermedio() {
     mezclarArreglo(estadosNombre);
     cambiarEstado();
     cambiarAudio();
+    iniciarTemporizador();
     let htmlIntentos = document.getElementById("intentos");
     htmlIntentos.innerHTML = `Intentos: ${intentos}`;
     let htmlAciertos = document.getElementById("aciertos");
     htmlAciertos.innerHTML = `Aciertos: ${aciertos}/32`;
+
+    document.getElementById('menu').setAttribute('class','hidden');
+    document.getElementById('datos').setAttribute('class','grid grids-cols-5 mt-4');
+    document.getElementById('lsm').setAttribute('class','w-full ml-.5 sm:ml-0 md:ml-0 lg:ml-1.5 xl:ml-8 inline-flex');
     cambiarGif();
     console.log(estadosNombre);
 };
 
-iniciarIntermedio();
+
 

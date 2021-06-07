@@ -36,23 +36,11 @@
 { 
   color: #2b6cb0;
 }
-/*tailwind.config.js*/
-module.exports = {
-  theme: {
-    colors: {
-      transparent: 'transparent',
-      blue: '#039A1',
-      pink: '#9D174D',
-      teal: '#134E4A',
-      green: '#4D7C0F',
-      yellow: '#EAB308',
-    }
-  }
-}
+
   </style>
 </head>
 
-<body>
+<body class="bg-yellow-200">
  
 	<!-- This example requires Tailwind CSS v2.0+ -->
 <div>
@@ -79,7 +67,7 @@ module.exports = {
         </div>
       </div>
     </div>
-    <header class="bg-white shadow">
+    <header class="bg-white shadow bg-yellow-300">
     <div class="max-w-7xl mx-auto py-1 px-4 sm:px-6 lg:px-8">
       <h1 class="text-3xl font-bold text-gray-900">
         ¿Quienes somos?
@@ -91,14 +79,14 @@ module.exports = {
 <div class="max-w-7xl mx-auto py-1 sm:px-6 lg:px-8">
       <!-- Replace with your content -->
       <div class="px-4 py-1 sm:px-0">
-        <div class="border-4 border-dashed border-gray-200 rounded-lg h-2000">
+        <div class="rounded-lg h-2000">
            <div class="carousel relative shadow-2xl bg-black">
             <div class="carousel-inner relative overflow-hidden w-full">
                <!--Slide 1-->
                 <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
                   <div class="carousel-item absolute opacity-0" style="height:82vh;">
                     <div class="block h-full w-full bg-indigo-500 text-white text-5xl text-center">
-                      <img src="assets/img/slide4.jpg"> </img> 
+                      <img class="bg-contain" src="assets/img/slide4.jpg"> </img> 
                     </div>
                   </div>
                   <label for="carousel-3" class="prev control-1 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-blue-700 leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
@@ -108,7 +96,7 @@ module.exports = {
                 <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
                   <div class="carousel-item absolute opacity-0" style="height:82vh;">
                     <div class="block h-full w-full bg-orange-500 text-white text-5xl text-center">
-                      <img src="assets/img/slide5.jpg"> </img> 
+                      <img class="bg-contain" src="assets/img/slide5.jpg"> </img> 
                     </div>
                   </div>
                   <label for="carousel-1" class="prev control-2 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-blue-700 leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
