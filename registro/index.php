@@ -49,7 +49,7 @@ include "../app/app.php";
 						</div>
 						<div>
 							<label for="email-address" class="sr-only">Email address</label>
-							<input id="email" name="email" type="email" autocomplete="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Correo Electronico">
+							<input id="email" name="email" type="email" autocomplete="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Correo Electrónico">
 						</div>
 						<div>
 							<label for="password" class="sr-only">Password</label>
@@ -61,7 +61,7 @@ include "../app/app.php";
 						<div class="flex items-center">
 							<input id="remember_me" name="remember_me" type="checkbox" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
 							<a href="#" for="remember_me" class="ml-2 block text-sm text-indigo-400 hover:text-indigo-600">
-								Terminos y condiciones
+								Términos y condiciones
 							</a>
 						</div>
 

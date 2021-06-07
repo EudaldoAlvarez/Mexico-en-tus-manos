@@ -37,7 +37,7 @@ include "../app/app.php";
 					<div class="rounded-md shadow-sm -space-y-px">
 						<div>
 							<label for="email-address" class="sr-only">Email address</label>
-							<input id="email" name="email" type="email" autocomplete="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Correo Electronico">
+							<input id="email" name="email" type="email" autocomplete="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Correo Electrónico">
 						</div>
 						<div>
 							<label for="password" class="sr-only">Password</label>
@@ -49,13 +49,13 @@ include "../app/app.php";
 						<div class="flex items-center">
 							<input id="remember_me" name="remember_me" type="checkbox" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
 							<label for="remember_me" class="ml-2 block text-sm text-gray-900">
-								Recordame
+								Recordarme
 							</label>
 						</div>
 
 						<div class="text-sm">
 							<a href="../registro/" class="font-medium text-indigo-600 hover:text-indigo-500">
-								Registrate aqui
+								Regístrate aquí
 							</a>
 						</div>
 					</div>
