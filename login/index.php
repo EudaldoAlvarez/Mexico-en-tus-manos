@@ -54,17 +54,17 @@ include "../app/app.php";
 						</div>
 
 						<div class="text-sm">
-							<a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
-								¿Has olvidado tu contraseña?
+							<a href="../registro/" class="font-medium text-indigo-600 hover:text-indigo-500">
+								Registrate aqui
 							</a>
 						</div>
 					</div>
-					<div class=" font-serif text-sm text-right text-bold">
+					<!-- <div class=" font-serif text-sm text-right text-bold">
 						Registrarse
 						<a class="text-sm text-blue-300 hover:text-blue-500" href="../registro/">
 							aquí.
 						</a>
-					</div>
+					</div> -->
 					<div class="pb-6">
 						<button type="submit" class="delay-75 group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
 							<span class="absolute left-0 inset-y-0 flex items-center pl-3">
@@ -89,5 +89,4 @@ include "../app/app.php";
 			login-end
 		===================-->
 </body>
-
 </html>

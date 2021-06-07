@@ -1,7 +1,6 @@
 <?php
 
-include "../app/app.php";
-
+include "../layouts/alerts.template.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,13 +27,14 @@ include "../app/app.php";
         <div id="info" class="w-1/4 h-screen rounded-tr-xl rounded-br-xl bg-yellow-200 shadow-inner-md border-r-4 border-yellow-600">
 
             <div class="w-3/4 ml-4 md:ml-10 sm:ml-8 lg:ml-12">
-                <img src="../assets/img/logo3.png" alt="">
+                <a href="../index.php"><img src="../assets/img/logo3.png" alt=""></a>
+
             </div>
             <div id="menu" class="w-1/4 mr-1 h-auto fixed bg-yellow-200 border-r-4 border-yellow-600">
                 <div class="text-xl text-center mb-2">
                     Elegir Dificultad
                 </div>
-                <div class="w-auto p-2 self-center text-lg text-center rounded-lg bg-blue-300 border-2 border-blue-400 hover:bg-blue-400" style="cursor: pointer" onclick=principiante()>
+                <div onclick=iniciarPrincipiante() class="w-auto p-2 self-center text-lg text-center rounded-lg bg-blue-300 border-2 border-blue-400 hover:bg-blue-400" style="cursor: pointer">
                     Principiante
                 </div>
                 <div onclick="iniciarIntermedio()" class="w-auto p-2 self-center text-lg text-center rounded-lg bg-green-300 border-2 border-green-400 hover:bg-green-400" style="cursor: pointer">
@@ -43,10 +43,13 @@ include "../app/app.php";
                 <div class="w-auto p-2 self-center text-lg text-center rounded-lg bg-red-300 border-2 border-red-400 hover:bg-red-400" style="cursor: pointer">
                     Experto
                 </div>
+                <div class=" mt-4 w-auto p-2 self-center text-lg text-center rounded-lg bg-yellow-500 border-2 border-yellow-700 hover:bg-yellow-700 mt-4">
+                    <a class="w-full" href="../index.php">Salir</a>
+                </div>
             </div>
             <div id="final" class="hidden">
                 <p id="text-final"></p>
-                 <a href="../index.php" class="w-auto p-2 self-center text-lg text-center rounded-lg bg-green-300 border-2 border-green-400 hover:bg-green-400 mt-4">Regresar</a>
+                <a href="../index.php" class="w-auto p-2 self-center text-lg text-center rounded-lg bg-yellow-500 border-2 border-yellow-700 hover:bg-yellow-700 mt-4">Salir</a>
             </div>
             <div id="datos" class="grid grids-cols-5 mt-4 hidden">
                 <h3 id="nombre" class="ml-8 text-3xl font-serif ">Eudaldo Trasviña</h3>
@@ -72,5 +75,4 @@ include "../app/app.php";
         <!-- end-mapa -->
     </div>
 </body>
-
 </html>
