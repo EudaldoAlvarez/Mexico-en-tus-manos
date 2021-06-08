@@ -21,6 +21,7 @@ include "../layouts/alerts.template.php";
 </head>
 
 <body>
+
     <!-- container -->
     <div class="inline-flex w-full bg-blue-400">
         <!-- tabla de información -->
@@ -30,17 +31,49 @@ include "../layouts/alerts.template.php";
                 <a href="../index.php"><img src="../assets/img/logo3.png" alt=""></a>
 
             </div>
+            <div id="tipoPrincipiante" class="hidden">
+                <div class="text-xl text-center mb-2">
+                    Elegir tipo de juego
+                </div>
+                <div onclick="iniciarPrincipiante('Estado')" class="w-auto p-2 self-center text-lg text-center rounded-lg bg-blue-300 border-2 border-blue-400 hover:bg-blue-400" style="cursor: pointer">
+                    Estados
+                </div>
+                <div onclick="iniciarPrincipiante('Capital')" class="w-auto p-2 self-center text-lg text-center rounded-lg bg-green-300 border-2 border-green-400 hover:bg-green-400" style="cursor: pointer">
+                    Capitales
+                </div>
+                <a href="../index.php">
+                    <div class=" mt-4 w-auto p-2 self-center text-lg text-center rounded-lg bg-yellow-500 border-2 border-yellow-700 hover:bg-yellow-700 mt-4">
+                        Salir
+                    </div>
+                </a>
+            </div>
+            <div id="tipoIntermedio" class="hidden">
+                <div class="text-xl text-center mb-2">
+                    Elegir tipo de juego
+                </div>
+                <div onclick="iniciarIntermedio('Estado')" class="w-auto p-2 self-center text-lg text-center rounded-lg bg-blue-300 border-2 border-blue-400 hover:bg-blue-400" style="cursor: pointer">
+                    Estados
+                </div>
+                <div onclick="iniciarIntermedio('Capital')" class="w-auto p-2 self-center text-lg text-center rounded-lg bg-green-300 border-2 border-green-400 hover:bg-green-400" style="cursor: pointer">
+                    Capitales
+                </div>
+                <a href="../index.php">
+                    <div class=" mt-4 w-auto p-2 self-center text-lg text-center rounded-lg bg-yellow-500 border-2 border-yellow-700 hover:bg-yellow-700 mt-4">
+                        Salir
+                    </div>
+                </a>
+            </div>
             <div id="menu" class="w-1/4 mr-1 h-auto fixed bg-yellow-200 border-r-4 border-yellow-600">
                 <div class="text-xl text-center mb-2">
                     Elegir Dificultad
                 </div>
-                <div onclick=iniciarPrincipiante() class="w-auto p-2 self-center text-lg text-center rounded-lg bg-blue-300 border-2 border-blue-400 hover:bg-blue-400" style="cursor: pointer">
+                <div onclick=principiante() class="w-auto p-2 self-center text-lg text-center rounded-lg bg-blue-300 border-2 border-blue-400 hover:bg-blue-400" style="cursor: pointer">
                     Principiante
                 </div>
-                <div onclick="iniciarIntermedio()" class="w-auto p-2 self-center text-lg text-center rounded-lg bg-green-300 border-2 border-green-400 hover:bg-green-400" style="cursor: pointer">
+                <div onclick=intermedio() class="w-auto p-2 self-center text-lg text-center rounded-lg bg-green-300 border-2 border-green-400 hover:bg-green-400" style="cursor: pointer">
                     Intermedio
                 </div>
-                <div class="w-auto p-2 self-center text-lg text-center rounded-lg bg-red-300 border-2 border-red-400 hover:bg-red-400" style="cursor: pointer">
+                <div onclick=iniciarExperto() class="w-auto p-2 self-center text-lg text-center rounded-lg bg-red-300 border-2 border-red-400 hover:bg-red-400" style="cursor: pointer">
                     Experto
                 </div>
                 <a href="../index.php">
@@ -50,6 +83,12 @@ include "../layouts/alerts.template.php";
                 </a>
 
             </div>
+            <!-- <form method="POST" action="../app/authController.php">
+                <input id="puntuacion" type="hidden" name="puntuacion" value="">
+                <input id="dificultad" type="hidden" name="dificultad" value="">
+                <input type="hidden" name="action" value="estadisticas">
+                <button id="formBoton" class="hidden" type="submit">Enviar</button>
+            </form> -->
             <div id="final" class="hidden">
                 <p id="text-final"></p>
                 <a href="../index.php" class="w-auto p-2 self-center text-lg text-center rounded-lg bg-yellow-500 border-2 border-yellow-700 hover:bg-yellow-700 mt-4">Salir</a>
