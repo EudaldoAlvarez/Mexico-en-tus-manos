@@ -9,7 +9,7 @@ var capitalesNombre = marcadores.map(marcadores => marcadores.capital);
 var dificultad;
 var puntuacion = 0;
 var tipoCadena = "";
-var estadosCapitales = [];
+var estadosCapitales = capitalesNombre.concat(estadosNombre);
 mapboxgl.accessToken = 'pk.eyJ1IjoiZXVkYWxkbyIsImEiOiJja3BteGhrdjAxNmMzMnVxa2N5N2VwM28yIn0.oCf9Q9-Vlzm3EtKByaTLVA';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiZXVkYWxkbyIsImEiOiJja3BteGhrdjAxNmMzMnVxa2N5N2VwM28yIn0.oCf9Q9-Vlzm3EtKByaTLVA';
@@ -138,13 +138,16 @@ const mezclarArreglo = arreglo => {
 
 
 function comprobarEstado(marcador) {
-    if(marcadores.some(marcadores => marcadores.estado == estadosCapitales[0])){
+
+    if (marcadores.some(marcadores => marcadores.estado == estadosCapitales[0])) {
         var datosMarcador = marcadores.find(marcadores => marcadores.estado == estadosCapitales[0]);
-    }else{
+        var coordenadasEstadosCapitales = (datosMarcador['latitud'] + "," + datosMarcador['longitud']);
+    } else {
         var datosMarcador = marcadores.find(marcadores => marcadores.capital == estadosCapitales[0]);
+        var coordenadasEstadosCapitales = (datosMarcador['latitud'] + "," + datosMarcador['longitud']);
     }
-    var coordenadasEstadosCapitales = (datosMarcador['latitud'] + "," + datosMarcador['longitud']);
-    var coordenadasMarcador = (datosMarcador['latitud'] + "," + datosMarcador['longitud']);
+
+
 
     var marcadorCoordenadas = (marcador._lngLat.lat + "," + marcador._lngLat.lng);
     if (tipoCadena == "Estado") {
@@ -155,7 +158,7 @@ function comprobarEstado(marcador) {
     var coordenadasEstado = (datosEstado['latitud'] + "," + datosEstado['longitud']);
     var nombreEstado = marcadores.find(marcadores => marcadores.longitud == marcador._lngLat.lng);
 
-    
+
     switch (dificultad) {
         case 1:
             if (marcadorCoordenadas == coordenadasEstado) {
@@ -177,6 +180,7 @@ function comprobarEstado(marcador) {
                 }
             } else {
                 if (tipoCadena == "Estado") {
+
                     alert(`Estado incorrecto, Este es ${nombreEstado.estado}`);
                 } else {
                     alert(`Capital incorrecta, Esta es ${nombreEstado.capital}`);
@@ -186,7 +190,7 @@ function comprobarEstado(marcador) {
             break;
 
         case 2:
-            if (marcadorCoordenadas == coordenadasEstadosCapitales) {
+            if (marcadorCoordenadas == coordenadasEstado) {
                 if (tipoCadena == "Estado") {
                     alert('Estado correcto');
                     estadosNombre.shift();
@@ -204,6 +208,8 @@ function comprobarEstado(marcador) {
                     finalIntermedio();
                 }
             } else {
+                console.log(marcadorCoordenadas)
+                console.log(coordenadasEstado)
                 if (tipoCadena == "Estado") {
                     alert(`Estado incorrecto, Este es ${nombreEstado.estado}`);
                 } else {
@@ -213,10 +219,10 @@ function comprobarEstado(marcador) {
             }
             break;
         case 3:
-            if (marcadorCoordenadas == coordenadasMarcador) {
-                if(marcadores.some(marcadores => marcadores.estado == estadosCapitales[0])){
+            if (marcadorCoordenadas == coordenadasEstadosCapitales) {
+                if (marcadores.some(marcadores => marcadores.estado == estadosCapitales[0])) {
                     alert(`Estado correcto`);
-                }else{
+                } else {
                     alert(`Capital correcta`);
                 }
                 estadosCapitales.shift();
@@ -227,11 +233,11 @@ function comprobarEstado(marcador) {
                     finalIntermedio();
 
                 }
-            }else{
+            } else {
                 errar();
-                if(marcadores.some(marcadores => marcadores.estado == estadosCapitales[0])){
+                if (marcadores.some(marcadores => marcadores.estado == estadosCapitales[0])) {
                     alert(`Estado incorrecto, Este es ${nombreEstado.estado}`);
-                }else{
+                } else {
                     alert(`Capital incorrecta, Esta es ${nombreEstado.capital}`);
                 }
             }
@@ -268,7 +274,7 @@ function perder() {
     document.getElementById('datos').setAttribute('class', 'hidden');
     document.getElementById('lsm').setAttribute('class', 'hidden');
     let final = document.getElementById('final')
-    final.setAttribute('class', 'p-2 w-1/4 mr-1 h-auto bg-yellow-200 border-r-4 border-yellow-600 text-2xl text-bold text-center font-serif');
+    final.setAttribute('class', 'p-2 w-full mr-1 h-auto bg-yellow-200  text-2xl text-bold text-center font-serif');
     document.getElementById('text-final').innerHTML = `¡QUE MAL!, HAS PERDIDO. :(`;
 
 }
@@ -346,7 +352,7 @@ function iniciarPrincipiante(tipo) {
 }
 function iniciarExperto() {
     dificultad = 3;
-    estadosCapitales = capitalesNombre.concat(estadosNombre);
+
     mezclarArreglo(estadosCapitales);
     expertoFunciones();
     iniciarTemporizador();
