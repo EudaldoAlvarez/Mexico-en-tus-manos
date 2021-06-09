@@ -99,6 +99,10 @@ function cambiarGif(tipo) {
         let htmlGif = document.getElementById("gif")
         htmlGif.src = `../assets/img/estados Gif/${estadosNombre[0]}.gif`;
     } else {
+        if (capitalesNombre[posision] == "Ciudad De México") {
+            let htmlGif = document.getElementById("gif")
+            htmlGif.src = `../assets/img/estados Gif/${capitalesNombre[0]}.gif`;
+        }
         let htmlGif = document.getElementById("gif")
         htmlGif.src = `../assets/img/capitales/${capitalesNombre[0]}.gif`;
     }
