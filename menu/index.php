@@ -40,7 +40,7 @@
                         <h1 id="estado" class="font-serif text-2xl h-1/4 pb-4 my-4">Nombre del estado</h1>
                         <div onclick="anterior()" class="m-2 rounded-md w-1/2 bg-yellow-200 border-2 border-yellow-300 text-center cursor-pointer hover:bg-yellow-300">Anterior</div>
                         <div onclick="siguiente()" class="m-2 rounded-md w-1/2 bg-yellow-200 border-2 border-yellow-300 text-center cursor-pointer hover:bg-yellow-300">Siguiente</div>
-                        <div onclick="salir()" class="m-2 mt-6 rounded-md w-1/2 bg-red-200 border-2 border-red-300 text-center cursor-pointer hover:bg-red-300">Anterior</div>
+                        <div onclick="salir()" class="m-2 mt-6 rounded-md w-1/2 bg-red-200 border-2 border-red-300 text-center cursor-pointer hover:bg-red-300">Regresar</div>
                        
                     </div>
                 </div>
