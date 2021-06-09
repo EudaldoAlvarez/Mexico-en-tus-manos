@@ -126,7 +126,7 @@ class AuthController
 						if ($user['rol'] == "Administrador") {
 							header("Location:" . BASE_PATH . "/admin/categories");
 						} else {
-							header("Location:" . BASE_PATH . "/game/");
+							header("Location:" . BASE_PATH . "/menu/");
 						}
 					} else {
 						$_SESSION['error'] = 'no se encontro el usuario o contraseña incorrecta';
