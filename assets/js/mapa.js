@@ -7,7 +7,7 @@ var intentos = 3;
 var estadosNombre = marcadores.map(marcadores => marcadores.estado);
 var capitalesNombre = marcadores.map(marcadores => marcadores.capital);
 var dificultad;
-var puntuacion = 0;
+var puntuacion = 3;
 var tipoCadena = "";
 var estadosCapitales = capitalesNombre.concat(estadosNombre);
 mapboxgl.accessToken = 'pk.eyJ1IjoiZXVkYWxkbyIsImEiOiJja3BteGhrdjAxNmMzMnVxa2N5N2VwM28yIn0.oCf9Q9-Vlzm3EtKByaTLVA';
@@ -83,15 +83,16 @@ function cambiarAudio(tipo) {
     if (tipo == 'Estado') {
         boton.addEventListener("click", () => {
             audioEtiqueta.src = `../assets/audios/estados/${estadosNombre[0]}.mp3`;
-            audioEtiqueta.play()
+            audioEtiqueta.play();
+            puntuacion--;
         })
     } else {
         boton.addEventListener("click", () => {
             audioEtiqueta.src = `../assets/audios/capitales/${capitalesNombre[0]}.mp3`;
-            audioEtiqueta.play()
+            audioEtiqueta.play();
+            puntuacion--;
         })
     }
-
 }
 
 function cambiarGif(tipo) {
@@ -99,7 +100,7 @@ function cambiarGif(tipo) {
         let htmlGif = document.getElementById("gif")
         htmlGif.src = `../assets/img/estados Gif/${estadosNombre[0]}.gif`;
     } else {
-        if (capitalesNombre[posision] == "Ciudad De México") {
+        if (capitalesNombre[0] == "Ciudad De México") {
             let htmlGif = document.getElementById("gif")
             htmlGif.src = `../assets/img/estados Gif/${capitalesNombre[0]}.gif`;
         }
@@ -120,7 +121,9 @@ function cambiarEstado(tipo) {
 };
 
 function errar() {
+    cambiarPuntuacion();
     intentos--;
+    puntuacion--;
     let htmlIntentos = document.getElementById("intentos");
     htmlIntentos.innerHTML = `Intentos: ${intentos}`
 };
@@ -202,6 +205,7 @@ function comprobarEstado(marcador) {
                     capitalesNombre.shift();
                     alert("Capital correcta");
                 }
+                cambiarPuntuacion();
                 puntuacion = puntuacion + intentos;
                 cambiarEstado(tipoCadena);
                 acertar();
@@ -229,6 +233,8 @@ function comprobarEstado(marcador) {
                 } else {
                     alert(`Capital correcta`);
                 }
+                cambiarPuntuacion();
+                puntuacion = puntuacion + intentos;
                 estadosCapitales.shift();
                 expertoFunciones();
                 acertar();
@@ -251,30 +257,62 @@ function comprobarEstado(marcador) {
 
 
 };
+
+function cambiarPuntuacion(){
+    document.getElementById("puntos").innerHTML = `Puntos: ${puntuacion}`;
+}
 function finalPrincipiante() {
     document.getElementById('datos').setAttribute('class', 'hidden');
     document.getElementById('lsm').setAttribute('class', 'hidden');
     let final = document.getElementById('final')
     final.setAttribute('class', 'p-2 w-full mr-1 h-auto bg-yellow-200  text-2xl text-bold text-center font-serif');
     document.getElementById('text-final').innerHTML = `¡FELICITACIONES! HAS LOGRADO ACABAR EL JUEGO.`;
-
+    inputPuntuacion = document.getElementById("puntuacion");
+    inputPuntuacion.setAttribute('value',puntuacion);
+    document.getElementById("tipo").setAttribute('value',tipoCadena);
+    inputDificultad = document.getElementById("dificultad");
+    inputDificultad.setAttribute('value','Principiante');
 }
 
 function finalIntermedio() {
     document.getElementById('datos').setAttribute('class', 'hidden');
     document.getElementById('lsm').setAttribute('class', 'hidden');
-    // inputPuntuacion = document.getElementById("puntuacion");
-    // inputPuntuacion.value = `${puntuacion}`;
-    // inputDificultad = document.getElementById("dificultad");
-    // inputDificultad.value = "Intermedio";
-    // document.getElementById("formBoton").setAttribute('class', 'w-1/2')
+    document.getElementById('aciertos').setAttribute('value', `${aciertos}`);
+    document.getElementById('minutos').setAttribute('value', `${minutos}`);
+    document.getElementById('segundos').setAttribute('value', `${segundos}`);
+    inputPuntuacion = document.getElementById("puntuacion");
+    inputPuntuacion.setAttribute('value',puntuacion);
+    inputDificultad = document.getElementById("dificultad");
+    if (dificultad == 2) {
+        inputDificultad.setAttribute('value', 'Intermedio');
+        document.getElementById("tipo").setAttribute('value',tipoCadena);
+    } else if (dificultad == 3) {
+        inputDificultad.setAttribute('value', 'Experto');
+        document.getElementById("tipo").setAttribute('value','Mixto');
+    }
     let final = document.getElementById('final');
-    final.setAttribute('class', 'p-2 w-full mr-1 h-auto bg-yellow-200  text-2xl text-bold text-center font-serif');
+    final.setAttribute('class', 'p-2 w-full mr-1 h-auto bg-yellow-200 block  text-2xl text-bold text-center font-serif');
     document.getElementById('text-final').innerHTML = `¡FELICITACIONES! HAS LOGRADO ACABAR EL JUEGO EN UN TIEMPO DE ${minutos}:${segundos} minutos`;
 }
 
 
 function perder() {
+    inputPuntuacion = document.getElementById("puntuacion");
+    inputPuntuacion.value = `${puntuacion}`;
+    document.getElementById('aciertos').setAttribute('value', `${aciertos}`);
+    document.getElementById('minutos').setAttribute('value', `${minutos}`);
+    document.getElementById('segundos').setAttribute('value', `${segundos}`);
+    inputDificultad = document.getElementById("dificultad");
+    if (dificultad == 2) {
+        inputDificultad.setAttribute('value', 'Intermedio');
+        document.getElementById("tipo").setAttribute('value',tipoCadena);
+    } else if (dificultad == 3) {
+        inputDificultad.setAttribute('value', 'Experto');
+        document.getElementById("tipo").setAttribute('value','Mixto');
+    }else{
+        inputDificultad.setAttribute('value','Principiante');
+        inputPuntuacion.setAttribute('value','0');
+    }
     document.getElementById('datos').setAttribute('class', 'hidden');
     document.getElementById('lsm').setAttribute('class', 'hidden');
     let final = document.getElementById('final')
@@ -347,6 +385,7 @@ function iniciarPrincipiante(tipo) {
     cambiarAudio(tipo);
     document.getElementById('tipoPrincipiante').setAttribute('class', 'hidden');
     document.getElementById('reloj').setAttribute('class', 'hidden');
+    document.getElementById('puntos').setAttribute('class', 'hidden');
     document.getElementById('intentos').setAttribute('class', 'hidden');
     document.getElementById('menu').setAttribute('class', 'hidden');
     document.getElementById('gif').setAttribute('class', 'rounded-md shadow-lg w-2/5 h-2/5');

@@ -1,3 +1,8 @@
+<?php
+    
+    include "../app/authController.php"
+    
+?>
 <!DOCTYPE html>
 <html>
 

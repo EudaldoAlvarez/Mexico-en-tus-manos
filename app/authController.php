@@ -30,11 +30,26 @@ if (isset($_POST['action'])) {
 
 				break;
 			case 'estadisticas':
-				$nickname = 'eudaldo';
+				$nickname = strip_tags($_POST['nickname']);
 				$puntuacion = strip_tags($_POST['puntuacion']);
 				$dificultad = strip_tags($_POST['dificultad']);
+				$tipo = strip_tags($_POST['tipo']);
+				$aciertos = strip_tags($_POST['aciertos']);
+				$minutos = strip_tags($_POST['minutos']);
+				$segundos = strip_tags($_POST['segundos']);
 
-				$authController->puntuacion($nickname, $puntuacion, $dificultad);
+				$authController->puntuacion($nickname, $puntuacion, $dificultad, $tipo, $aciertos, $minutos, $segundos);
+				break;
+			case 'guardar':
+				$nickname = strip_tags($_POST['nickname']);
+				$puntuacion = strip_tags($_POST['puntuacion']);
+				$dificultad = strip_tags($_POST['dificultad']);
+				$tipo = strip_tags($_POST['tipo']);
+				$aciertos = strip_tags($_POST['aciertos']);
+				$minutos = strip_tags($_POST['minutos']);
+				$segundos = strip_tags($_POST['segundos']);
+
+				$authController->guardar($nickname, $puntuacion, $dificultad, $tipo, $tipo, $aciertos, $minutos, $segundos);
 				break;
 		}
 	} else {
@@ -49,20 +64,55 @@ if (isset($_POST['action'])) {
 
 class AuthController
 {
-	public function puntuacion($nickname, $puntuacion, $dificultad)
+	public function get()
 	{
 		$conn = connect();
-		$query = "insert into puntaje(id,nickname,puntuacion,dificultad) values (0,?,?,?)";
-		$prepared_query = $conn->prepare($query);
-		$prepared_query->bind_param('sss',$nickname,$puntuacion,$dificultad);
-		if ($prepared_query->execute()) {
+		if ($conn->connect_error == false) {
 
-			
+			$query = "select * from puntaje where nickname = (?)";
+			$prepared_query = $conn->prepare($query);
+			$prepared_query->execute();
+
+			$results = $prepared_query->get_result();
+			$categories = $results->fetch_all(MYSQLI_ASSOC);
+
+			if (count($categories) > 0) {
+				return $categories;
+			} else
+				return array();
+		} else
+			return array();
+	}
+	public function puntuacion($nickname, $puntuacion, $dificultad, $tipo, $aciertos, $minutos, $segundos)
+	{
+		$zero = 0;
+		$conn = connect();
+		$query = "insert into puntaje values (?, ?, ?, ?,?,?,?,?)";
+		$prepared_query = $conn->prepare($query);
+		$prepared_query->bind_param('issssiii', $zero, $nickname, $puntuacion, $dificultad, $tipo, $aciertos, $minutos, $segundos);
+		if ($prepared_query->execute()) {
+			header("Location:" . BASE_PATH . "/dashboard");
 		} else {
 
 			$_SESSION['error'] = 'Datos erroneos';
 
+			// header("Location:" . $_SERVER['HTTP_REFERER']);
+		}
+	}
+	public function guardar($nickname, $puntuacion, $dificultad, $aciertos, $minutos, $segundos)
+	{
+		$zero = 0;
+		$conn = connect();
+		$query = "insert into puntaje values (?, ?, ?, ?,?,?,?,?)";
+		$prepared_query = $conn->prepare($query);
+		$prepared_query->bind_param('issssiii', $zero, $nickname, $puntuacion, $dificultad, $tipo, $aciertos, $minutos, $segundos);
+		if ($prepared_query->execute()) {
 			header("Location:" . $_SERVER['HTTP_REFERER']);
+		} else {
+
+			$_SESSION['error'] = 'Datos erroneos';
+
+			// header("Location:" . $_SERVER['HTTP_REFERER']);
 		}
 	}
 	public function register($nombres, $apellidos, $nickname, $email, $password)
@@ -123,6 +173,7 @@ class AuthController
 						$_SESSION['id'] = $user['id'];
 						$_SESSION['name'] = $user['nombres'];
 						$_SESSION['email'] = $user['email'];
+						$_SESSION['nickname'] = $user['nickname'];
 						if ($user['rol'] == "Administrador") {
 							header("Location:" . BASE_PATH . "/admin/categories");
 						} else {
@@ -147,9 +198,5 @@ class AuthController
 
 			header("Location:" . $_SERVER['HTTP_REFERER']);
 		}
-	}
-
-	public function logout()
-	{
 	}
 }
